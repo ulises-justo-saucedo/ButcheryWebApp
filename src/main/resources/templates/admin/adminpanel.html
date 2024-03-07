@@ -4,6 +4,15 @@
     <title>Admin panel</title>
 </head>
 <body>
-    Hello, Admin panel!
+    <div th:insert="admin/header :: links"></div>
+    <h1>Administration Panel</h1>
+    <h3>Welcome, Administrator!</h3>
+    <p>
+        In this special page you're able to perform CRUD (Create, Read, Update and Update)
+        operations over your users, orders and items.<br>
+        So if you want to add a new item to the main page (where users can buy your products) you can do it here.<br>
+        Every change you make here, will modify the registers of the database. <strong>So be cautious about what you delete or update.</strong><br>
+        Don't worry about missclicks; for every change you attempt to do, a confirmation popup will appear on the screen.
+    </p>
 </body>
 </html>
