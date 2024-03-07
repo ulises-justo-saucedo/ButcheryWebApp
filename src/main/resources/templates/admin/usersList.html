@@ -23,14 +23,10 @@
             <td th:text="${user.surname}"></td>
             <td th:text="${user.admin}"></td>
             <td>
-                <form action="/Butchery/adm/user/update" method="GET">
-                    <button type="submit" name="id" th:value="${user.id}">Modify</button>
-                </form>
+                <a th:href="@{/Butchery/adm/user/update/{id}(id=${user.id})}">Modify</a>
             </td>
             <td>
-                <form action="#" method="POST">
-                    <button type="submit" th:value="${user.id}">Delete</button>
-                </form>
+                <a href="#">Delete</a>
             </td>
         </tr>
     </table>

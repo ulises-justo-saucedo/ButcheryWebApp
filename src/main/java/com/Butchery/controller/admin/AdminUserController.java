@@ -19,8 +19,8 @@ public class AdminUserController {
         mav.setViewName("admin/usersList");
         return mav;
     }
-    @GetMapping("/update")
-    public ModelAndView showUpdatePage(@RequestParam("id") long id){
+    @GetMapping("/update/{id}")
+    public ModelAndView showUpdatePage(@PathVariable("id") long id){
         ModelAndView mav = new ModelAndView();
         mav.addObject("user",clientService.selectById(id));
         mav.setViewName("admin/updateUser");
