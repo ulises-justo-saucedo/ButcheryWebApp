@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin panel</title>
+</head>
+<body>
+    <div th:insert="~{admin/header :: links}"></div>
+    <h1>Currently modifying a user</h1>
+    <h2>Modifying user known as <span th:text="${user.name}"></span> <span th:text="${user.surname}"></span></h2>
+    <form action="/Butchery/adm/users/update/sent" method="POST">
+        <label>Username: </label><input type="text" name="username" th:value="${user.username}"/><br>
+        <label>Password: </label><input type="text" name="password" th:value="${user.password}"/><br>
+        <label>Name: </label><input type="text" name="name" th:value="${user.name}"/><br>
+        <label>Surname: </label><input type="text" name="surname" th:value="${user.surname}"/><br>
+        <button type="submit" name="button" value="confirm">Confirm</button>
+        <button type="submit" name="button" value="cancel">Cancel</button>
+        <input type="hidden" name="admin" th:value="${user.admin}"/>
+        <input type="hidden" name="id" th:value="${user.id}"/>
+    </form>
+</body>
+</html>

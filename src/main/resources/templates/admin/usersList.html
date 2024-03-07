@@ -23,8 +23,8 @@
             <td th:text="${user.surname}"></td>
             <td th:text="${user.admin}"></td>
             <td>
-                <form action="#" method="GET">
-                    <button type="submit" th:value="${user.id}">Modify</button>
+                <form action="/Butchery/adm/users/update" method="GET">
+                    <button type="submit" name="id" th:value="${user.id}">Modify</button>
                 </form>
             </td>
             <td>
