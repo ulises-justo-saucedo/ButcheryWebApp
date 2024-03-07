@@ -11,7 +11,13 @@ public class ClientService {
     @Autowired
     private ClientRepository clientRepository;
     private void saveOrUpdate(ClientEntity clientEntity){
-        clientRepository.save(clientEntity);
+        boolean isClientValid = !clientEntity.getName().isEmpty() &&
+                !clientEntity.getSurname().isEmpty() &&
+                !clientEntity.getUsername().isEmpty() &&
+                !clientEntity.getPassword().isEmpty();
+        if(isClientValid) {
+            clientRepository.save(clientEntity);
+        }
     }
     private void deleteById(long id){
         clientRepository.deleteById(id);
