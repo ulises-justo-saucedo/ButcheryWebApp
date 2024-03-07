@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin panel</title>
+</head>
+<body>
+    <div th:insert="admin/header :: links"></div>
+    <h1>These are all the users registered in our system</h1>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Admin</th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.password}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.surname}"></td>
+            <td th:text="${user.admin}"></td>
+            <td>
+                <form action="#" method="GET">
+                    <button type="submit" th:value="${user.id}">Modify</button>
+                </form>
+            </td>
+            <td>
+                <form action="#" method="POST">
+                    <button type="submit" th:value="${user.id}">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

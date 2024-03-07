@@ -10,7 +10,7 @@ import java.util.List;
 public class ClientService {
     @Autowired
     private ClientRepository clientRepository;
-    private void saveOrUpdate(ClientEntity clientEntity){
+    public void saveOrUpdate(ClientEntity clientEntity){
         boolean isClientValid = !clientEntity.getName().isEmpty() &&
                 !clientEntity.getSurname().isEmpty() &&
                 !clientEntity.getUsername().isEmpty() &&
@@ -19,13 +19,13 @@ public class ClientService {
             clientRepository.save(clientEntity);
         }
     }
-    private void deleteById(long id){
+    public void deleteById(long id){
         clientRepository.deleteById(id);
     }
-    private List<ClientEntity> selectAll(){
+    public List<ClientEntity> selectAll(){
         return clientRepository.findAll();
     }
-    private ClientEntity selectById(long id){
+    public ClientEntity selectById(long id){
         return clientRepository.findById(id).orElse(null);
     }
 }
