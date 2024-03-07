@@ -8,5 +8,4 @@ public class ButcheryApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ButcheryApplication.class, args);
 	}
-
 }
