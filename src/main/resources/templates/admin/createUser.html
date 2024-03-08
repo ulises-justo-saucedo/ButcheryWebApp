@@ -11,7 +11,10 @@
         <label>Password: </label><input type="text" name="password"/><br>
         <label>Name: </label><input type="text" name="name"/><br>
         <label>Surname: </label><input type="text" name="surname"/><br>
-        <input type="hidden" name="admin" value="false"/><br>
+        <label>This user should be an admin? </label>
+        Yes!<input type="radio" name="admin" value="true"/>
+        No!<input type="radio" name="admin" value="false" checked/>
+        <br>
         <button type="submit" name="button" value="confirm">Confirm</button>
         <button type="submit" name="button" value="cancel">Cancel</button>
     </form>
