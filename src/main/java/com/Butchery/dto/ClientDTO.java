@@ -35,4 +35,13 @@ public class ClientDTO {
         clientEntity.setAdmin(admin);
         return clientEntity;
     }
+    public ClientEntity toClientEntity(){
+        ClientEntity clientEntity = new ClientEntity();
+        clientEntity.setUsername(username);
+        clientEntity.setPassword(password);
+        clientEntity.setName(name);
+        clientEntity.setSurname(surname);
+        clientEntity.setAdmin(admin);
+        return clientEntity;
+    }
 }

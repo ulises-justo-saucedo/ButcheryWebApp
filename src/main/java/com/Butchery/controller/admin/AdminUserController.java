@@ -50,4 +50,16 @@ public class AdminUserController {
         }
         return "redirect:/Butchery/adm/user/list";
     }
+    @GetMapping("/create")
+    public String showCreateUserPage(){
+        return "admin/createUser";
+    }
+    @PostMapping("/create/sent")
+    public String createUser(@Valid ClientDTO clientDTO, @RequestParam("button") String button){
+        if(button.equals("confirm")){
+            ClientEntity clientEntity = clientDTO.toClientEntity();
+            clientService.saveOrUpdate(clientEntity);
+        }
+        return "redirect:/Butchery/adm/user/list";
+    }
 }
