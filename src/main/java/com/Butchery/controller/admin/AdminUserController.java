@@ -55,8 +55,8 @@ public class AdminUserController {
         return "admin/createUser";
     }
     @PostMapping("/create/sent")
-    public String createUser(@Valid ClientDTO clientDTO, @RequestParam("button") String button){
-        if(button.equals("confirm")){
+    public String createUser(@Valid ClientDTO clientDTO, BindingResult bindingResult, @RequestParam("button") String button){
+        if(button.equals("confirm") && !bindingResult.hasErrors()){
             ClientEntity clientEntity = clientDTO.toClientEntity();
             clientService.saveOrUpdate(clientEntity);
         }
