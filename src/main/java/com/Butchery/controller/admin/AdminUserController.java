@@ -18,14 +18,14 @@ public class AdminUserController {
     public ModelAndView userList(){
         ModelAndView mav = new ModelAndView();
         mav.addObject("users",clientService.selectAll());
-        mav.setViewName("admin/usersList");
+        mav.setViewName("admin/users/usersList");
         return mav;
     }
     @GetMapping("/update/{id}")
     public ModelAndView showUpdatePage(@PathVariable("id") long id){
         ModelAndView mav = new ModelAndView();
         mav.addObject("user",clientService.selectById(id));
-        mav.setViewName("admin/updateUser");
+        mav.setViewName("admin/users/updateUser");
         return mav;
     }
     @PostMapping("/update/sent")
@@ -40,7 +40,7 @@ public class AdminUserController {
     public ModelAndView showDeletePage(@PathVariable("id") long id){
         ModelAndView mav = new ModelAndView();
         mav.addObject("user",clientService.selectById(id));
-        mav.setViewName("admin/deleteUser");
+        mav.setViewName("admin/users/deleteUser");
         return mav;
     }
     @PostMapping("/delete/sent")
@@ -52,7 +52,7 @@ public class AdminUserController {
     }
     @GetMapping("/create")
     public String showCreateUserPage(){
-        return "admin/createUser";
+        return "admin/users/createUser";
     }
     @PostMapping("/create/sent")
     public String createUser(@Valid ClientDTO clientDTO, BindingResult bindingResult, @RequestParam("button") String button){
