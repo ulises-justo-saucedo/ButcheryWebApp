@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin panel</title>
+</head>
+<body>
+    <div th:insert="admin/header :: links"></div>
+    <h1>Do you want to delete the following user?</h1>
+    <form action="/Butchery/adm/user/delete/sent" method="POST">
+        <strong>Username: </strong><span th:text="${user.username}"></span>
+        <strong>Password: </strong><span th:text="${user.password}"></span>
+        <strong>Name: </strong><span th:text="${user.name}"></span>
+        <strong>Surname: </strong><span th:text="${user.surname}"></span>
+        <strong>Admin: </strong><span th:text="${user.admin}"></span>
+        <button type="submit" name="button" value="delete">Delete</button>
+        <button type="submit" name="button" value="cancel">Cancel</button>
+        <input type="hidden" name="id" th:value="${user.id}"/>
+    </form>
+</body>
+</html>

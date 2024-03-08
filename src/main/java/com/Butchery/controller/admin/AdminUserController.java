@@ -39,4 +39,18 @@ public class AdminUserController {
         }
         return "redirect:/Butchery/adm/user/list";
     }
+    @GetMapping("/delete/{id}")
+    public ModelAndView showDeletePage(@PathVariable("id") long id){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("user",clientService.selectById(id));
+        mav.setViewName("admin/deleteUser");
+        return mav;
+    }
+    @PostMapping("/delete/sent")
+    public String deleteUser(@RequestParam("id") long id, @RequestParam("button") String button){
+        if(button.equals("delete")){
+            clientService.deleteById(id);
+        }
+        return "redirect:/Butchery/adm/user/list";
+    }
 }
