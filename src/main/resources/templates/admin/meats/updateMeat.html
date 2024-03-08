@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin panel</title>
+</head>
+<body>
+    <div th:insert="admin/header :: links"></div>
+    <h1>Currently modifying a product</h1>
+    <form action="/Butchery/adm/meat/update/sent" method="POST">
+        <label>Meat type: </label><input type="text" name="type" th:value="${meat.type}"/><br>
+        <label>Meat description: </label><input type="text" name="description" th:value="${meat.description}"/><br>
+        <label>Stock: </label><input type="number" name="stock" th:value="${meat.stock}"/><br>
+        <label>Price: </label><input type="number" name="price" th:value="${meat.price}"/><br>
+        <button type="submit" name="button" value="confirm">Confirm</button>
+        <button type="submit" name="button" value="cancel">Cancel</button>
+        <input type="hidden" name="id" th:value="${meat.id}"/>
+    </form>
+</body>
+</html>

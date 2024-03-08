@@ -22,7 +22,7 @@
             <td th:text="${meat.stock}"></td>
             <td th:text="${meat.price}"></td>
             <td>
-                <a href="#">Modify</a>
+                <a th:href="@{/Butchery/adm/meat/update/{id}(id=${meat.id})}">Modify</a>
             </td>
             <td>
                 <a href="#">Delete</a>
