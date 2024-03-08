@@ -29,13 +29,10 @@ public class AdminUserController {
         return mav;
     }
     @PostMapping("/update/sent")
-    public String updateUser(@Valid ClientDTO clientDTO, BindingResult bindingResult, @RequestParam("id") long id){
-        if(!bindingResult.hasErrors()){
+    public String updateUser(@Valid ClientDTO clientDTO, BindingResult bindingResult, @RequestParam("id") long id, @RequestParam("button") String button){
+        if(!bindingResult.hasErrors() && button.equals("confirm")){
             ClientEntity clientEntity = clientDTO.toClientEntity(id);
             clientService.saveOrUpdate(clientEntity);
-            System.out.println("Successfully saved entity. Entity has no errors.");
-        }else{
-            System.out.println("Couldn't save entity. Entity has errors.");
         }
         return "redirect:/Butchery/adm/user/list";
     }
